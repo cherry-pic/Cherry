@@ -1,7 +1,7 @@
 import openai
 import time
 import os
-openai.api_key="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"
+openai.api_key=""
 from data_loading import load_data
 from transformers import AutoTokenizer
 from response_parser import parse_response
