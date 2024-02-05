@@ -1,0 +1,22 @@
+512 context temp 3 , 10-shot
+w/o preprocessing
+
+sklearn's accuracy score = 0.841796875
+sklearn's balanced accuracy score = 0.8113328581610835
+sklearn's adjusted balanced accuracy score = 0.6226657163221669
+sklearn's macro precision score = 0.7981910972024234
+sklearn's macro recall score = 0.8113328581610835
+Classification Report:----------------------------
+                precision    recall  f1-score   support
+
+           0       0.94      0.65      0.77       207
+           1       0.80      0.97      0.88       305
+
+    accuracy                           0.84       512
+   macro avg       0.87      0.81      0.82       512
+weighted avg       0.86      0.84      0.84       512
+
+Torch metrics' Accuracy = tensor(0.8418)
+Torch metrics' F1 = tensor(0.8796)
+Torch metrics' Precision = tensor(0.8043)
+Torch metrics' Recall = tensor(0.9705)

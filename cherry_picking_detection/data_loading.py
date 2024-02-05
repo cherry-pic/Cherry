@@ -1,13 +1,18 @@
 from torch.utils.data import DataLoader
 from data_class import CustomDataset
 import pandas as pd
-from src.helper_scripts.helpers import read_json
 import codecs
 import json
 # STEP 3: add ids for events to combine predictions with events based on event ids later after inference.
 # generate a csv with only necessary columns for predicitons in order to load data with pandas dataframes at infernece time
 # prepare data and load data as CustomDataset objects into data loaders for inference.
 
+
+def read_json (json_file):
+    with open(json_file) as json_file:
+        data = json.load(json_file)
+        json_file.close()
+    return data
 def prepare_data( inference_data_file_csv, batch_size, pretrained_model,max_seq_len,global_attention_loc,padding_strategy):
     print("Preparing and loading data...")
 

@@ -1,0 +1,5 @@
+context 256
+
+
+Torch metrics' Accuracy = tensor(0.8100)
+Torch metrics' F1 = tensor(0.8014)

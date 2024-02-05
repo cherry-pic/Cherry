@@ -25,8 +25,9 @@ PREDICTION_THRESHOLD = 0.5
 GLOBAL_ATTENTION_LOCATION = [0,1] # sets the location of Longformer's global attention ([0]:classification token [CLS], [1]: first sequence (fact) only, [2]: 2nd sequence (context) only, [0,1]: CLS+fact, [0,1,2] all sequence, etc..
 CLASSIFICATION_TYPE = 1 # choose from 1-5 classification types (refer to the Cherry Google doc)
 REMOVE_REDUNDANT = True
+SUMM_CONTEXT = False   # use summarized articles as context
 RAW_DS_PATH = "data/classification_" + str(CLASSIFICATION_TYPE) + "/raw_ds_classif_type_" + str(CLASSIFICATION_TYPE) + '.csv'
-MAX_SEQ_LENGTH = 1024  # the max length of the input sequence to BERT
+MAX_SEQ_LENGTH = 128  # the max length of the input sequence to BERT
 VALIDATION="holdout" #"cv" data is split into test and train for cross validation, "holdout": data is split into train, dev, test and holdout evaluation occurs
 TEST_SIZE = 0.15
 SHUFFLE = False
@@ -45,7 +46,7 @@ print("The outputs and artifacts of this experiment will be saved in directory: 
 ###################################################################################################
 # D A T A    C L E A N I N G    &    L O A D I N G
 ###################################################################################################
-data_splits = clean_data(raw_ds_path=RAW_DS_PATH,validation_type=VALIDATION,cv_k=CV_K,remove_redundants=REMOVE_REDUNDANT,classification_type=CLASSIFICATION_TYPE,shuffle = SHUFFLE,test_size=TEST_SIZE)
+data_splits = clean_data(raw_ds_path=RAW_DS_PATH,validation_type=VALIDATION,cv_k=CV_K,remove_redundants=REMOVE_REDUNDANT,classification_type=CLASSIFICATION_TYPE,shuffle = SHUFFLE,test_size=TEST_SIZE,summ_context_data=SUMM_CONTEXT)
 dataloaders,test_dfs = prepare_data(data_splits, BATCH_SIZE, PRETRAINED_MODEL,MAX_SEQ_LENGTH,GLOBAL_ATTENTION_LOCATION,PADDING_STRATEGY)
 
 ###################################################################################################

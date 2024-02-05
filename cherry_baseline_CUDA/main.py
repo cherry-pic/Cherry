@@ -22,13 +22,14 @@ EPOCHS = 5  # number of training epochs
 DROPOUT = 0.0 # droput at the classification dense layer
 HIDDEN_SIZE = 768 if 'base' in PRETRAINED_MODEL else 1024 # size of the vector representations of each token: 768 for base models, 1024 for large models
 PREDICTION_THRESHOLD = 0.5
-CLASSIFICATION_TYPE = 4 # choose from 1-5 classification types (refer to the Cherry Google doc)
+CLASSIFICATION_TYPE = 1 # choose from 1-5 classification types (refer to the Cherry Google doc)
 REMOVE_REDUNDANT = True
 RAW_DS_PATH = "data/classification_" + str(CLASSIFICATION_TYPE) + "/raw_ds_classif_type_" + str(CLASSIFICATION_TYPE) + '.csv'
 MAX_SEQ_LENGTH = 512  # the max length of the input sequence to BERT
 VALIDATION="holdout" #"cv" data is split into test and train for cross validation, "holdout": data is split into train, dev, test and holdout evaluation occurs
 TEST_SIZE = 0.15
 SHUFFLE = False
+SUMM_CONTEXT = True  # used summarized articles as context
 CV_K = 5 # number of folds in cross validation. (choose a number between 5-full data set size) because the size of the test split changes with CV_K, gets bigger when K decreases
 set_seed(1) #  Set all seeds to make reproducible results
 EXP_DIR = "outputs/Exp_"+now+"_LR_"+str(LR)+"_seq_"+str(MAX_SEQ_LENGTH)+"/"
@@ -43,7 +44,7 @@ print("The outputs and artifacts of this experiment will be saved in directory: 
 ###################################################################################################
 # D A T A    C L E A N I N G    &    L O A D I N G
 ###################################################################################################
-data_splits = clean_data(raw_ds_path=RAW_DS_PATH,validation_type=VALIDATION,cv_k=CV_K,remove_redundants=REMOVE_REDUNDANT,classification_type=CLASSIFICATION_TYPE,shuffle = SHUFFLE,test_size=TEST_SIZE)
+data_splits = clean_data(raw_ds_path=RAW_DS_PATH,validation_type=VALIDATION,cv_k=CV_K,remove_redundants=REMOVE_REDUNDANT,classification_type=CLASSIFICATION_TYPE,shuffle = SHUFFLE,test_size=TEST_SIZE, summ_context_data=SUMM_CONTEXT)
 dataloaders,test_dfs = prepare_data(data_splits, BATCH_SIZE, PRETRAINED_MODEL,MAX_SEQ_LENGTH)
 
 ###################################################################################################

@@ -93,16 +93,16 @@ def evaluate(test_df,prediction_threshold,path_to_output_file,exp_dir,classifica
 
         print('\033[0m')
         num_classes = 2 if classification_type<=2 else 3
-        accuracy = Accuracy(average='macro', num_classes=num_classes)
+        accuracy = Accuracy(average='macro', num_classes=num_classes,task = "binary")
         print("Torch metrics' Accuracy = " + str(accuracy(preds_test, labels_test)))
         out.write("\nTorch metrics' Accuracy = " + str(accuracy(preds_test, labels_test)))
-        f1_score = F1Score(average='macro', num_classes=num_classes)
+        f1_score = F1Score(average='macro', num_classes=num_classes,task = "binary")
         print("Torch metrics' F1 = " + str(f1_score(preds_test, labels_test)))
         out.write("\nTorch metrics' F1 = " + str(f1_score(preds_test, labels_test)))
-        precision = Precision(average='macro', num_classes=num_classes)
+        precision = Precision(average='macro', num_classes=num_classes,task = "binary")
         print("Torch metrics' Precision = " + str(precision(preds_test, labels_test)))
         out.write("\nTorch metrics' Precision = " + str(precision(preds_test, labels_test)))
-        recall = Recall(average='macro', num_classes=num_classes)
+        recall = Recall(average='macro', num_classes=num_classes,task = "binary")
         print("Torch metrics' Recall = " + str(recall(preds_test, labels_test)))
         out.write("\nTorch metrics' Recall = " + str(recall(preds_test, labels_test)))
 
