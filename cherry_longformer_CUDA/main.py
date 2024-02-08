@@ -6,6 +6,7 @@ from train import train_model
 import torch
 from datetime import datetime
 import os
+os.environ['TRANSFORMERS_CACHE'] = '/work/09875/israajaradat/ls6/.cache/huggingface/'
 now = datetime.now()
 now = now.strftime("%d_%m_%Y_%H_%M")
 
