@@ -16,7 +16,7 @@ DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("This experiment will run on "+str(DEVICE))
 PRETRAINED_MODEL = "bert-base-uncased"  # 'bert-large-uncased','albert-base-v2', 'albert-large-v2', 'albert-xlarge-v2', 'albert-xxlarge-v2', 'bert-base-uncased', ...
 FREEZE_PRETRAINED = True  # if True, freeze the encoder weights and only update the classification layer weights
-BATCH_SIZE = 8  # batch size
+BATCH_SIZE = 6  # batch size
 LR = 2e-05  # learning rate
 EPOCHS = 5  # number of training epochs
 DROPOUT = 0.0 # droput at the classification dense layer
@@ -30,6 +30,7 @@ VALIDATION="holdout" #"cv" data is split into test and train for cross validatio
 TEST_SIZE = 0.15
 SHUFFLE = False
 SUMM_CONTEXT = True  # used summarized articles as context
+FIXED_CONTEXT = False  # use fixed context length measured by a fixed number of words.
 CV_K = 5 # number of folds in cross validation. (choose a number between 5-full data set size) because the size of the test split changes with CV_K, gets bigger when K decreases
 set_seed(1) #  Set all seeds to make reproducible results
 EXP_DIR = "outputs/Exp_"+now+"_LR_"+str(LR)+"_seq_"+str(MAX_SEQ_LENGTH)+"/"
@@ -44,7 +45,8 @@ print("The outputs and artifacts of this experiment will be saved in directory: 
 ###################################################################################################
 # D A T A    C L E A N I N G    &    L O A D I N G
 ###################################################################################################
-data_splits = clean_data(raw_ds_path=RAW_DS_PATH,validation_type=VALIDATION,cv_k=CV_K,remove_redundants=REMOVE_REDUNDANT,classification_type=CLASSIFICATION_TYPE,shuffle = SHUFFLE,test_size=TEST_SIZE, summ_context_data=SUMM_CONTEXT)
+data_splits = clean_data(raw_ds_path=RAW_DS_PATH,validation_type=VALIDATION,cv_k=CV_K,remove_redundants=REMOVE_REDUNDANT,
+                         classification_type=CLASSIFICATION_TYPE,shuffle = SHUFFLE,test_size=TEST_SIZE, summ_context_data=SUMM_CONTEXT, fixed_context=FIXED_CONTEXT)
 dataloaders,test_dfs = prepare_data(data_splits, BATCH_SIZE, PRETRAINED_MODEL,MAX_SEQ_LENGTH)
 
 ###################################################################################################

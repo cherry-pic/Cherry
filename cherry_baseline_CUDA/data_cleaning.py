@@ -88,7 +88,7 @@ def remove_redundant(full_ds_file,similarity_threshold,redund_free_file):
 
 
 # cleans and splits data
-def clean_data(raw_ds_path,validation_type, cv_k,remove_redundants,classification_type,shuffle,test_size, summ_context_data):
+def clean_data(raw_ds_path,validation_type, cv_k,remove_redundants,classification_type,shuffle,test_size, summ_context_data, fixed_context):
     if summ_context_data:
         data_splits = []
         train_df = pd.read_csv("data/classification_"+str(classification_type)+"/clean_data_w_summary_train.csv", delimiter='\t')
@@ -97,12 +97,15 @@ def clean_data(raw_ds_path,validation_type, cv_k,remove_redundants,classificatio
         test_df = preprocess(test_df)
         ds = (train_df, test_df, test_df)
         data_splits.append(ds)
+    elif fixed_context:
+        ds_w_fixed_context = "data/classification_"+str(classification_type)+"/clean_data_fixed_context.csv"
+        data_splits = preprocess_and_split_data(ds_w_fixed_context,validation_type, cv_k,classification_type,shuffle,test_size)
     else:
         if remove_redundants:
             print("Cleaning dataset from duplicates ...")
             clean_ds_path = "data/classification_"+str(classification_type)+"/clean_data.csv"
             if not os.path.exists(clean_ds_path):
-                remove_redundant(raw_ds_path,0.90,clean_ds_path)
+                remove_redundant(raw_ds_path, 0.90,clean_ds_path)
             data_splits = preprocess_and_split_data(clean_ds_path,validation_type, cv_k,classification_type,shuffle,test_size)
 
         else:
