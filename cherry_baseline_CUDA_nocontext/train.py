@@ -99,7 +99,7 @@ def train_for_n_epochs(net, loss_func, opti, lr,lr_scheduler,train_dataloader,va
         print("\nAverage training loss in this epoch = " + str(train_loss_epoch))
 
         val_loss = calc_valid_loss(net, device, loss_func, val_dataloader,classification_type)  # Compute validation loss
-        # tracking validation and training loss on every epoch for plotting/visualization
+        # tracking validation and training loss on every epoch for plotting/Results
         train_losses.append(train_loss_epoch)
         val_losses.append(val_loss)
         all_epochs.append(ep)
