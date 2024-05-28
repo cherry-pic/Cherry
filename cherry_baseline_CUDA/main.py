@@ -16,7 +16,7 @@ DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("This experiment will run on "+str(DEVICE))
 PRETRAINED_MODEL = "bert-base-uncased"  # 'bert-large-uncased','albert-base-v2', 'albert-large-v2', 'albert-xlarge-v2', 'albert-xxlarge-v2', 'bert-base-uncased', ...
 FREEZE_PRETRAINED = True  # if True, freeze the encoder weights and only update the classification layer weights
-BATCH_SIZE = 6  # batch size
+BATCH_SIZE = 8  # batch size
 LR = 2e-05  # learning rate
 EPOCHS = 5  # number of training epochs
 DROPOUT = 0.0 # droput at the classification dense layer
@@ -29,8 +29,8 @@ MAX_SEQ_LENGTH = 512  # the max length of the input sequence to BERT
 VALIDATION="holdout" #"cv" data is split into test and train for cross validation, "holdout": data is split into train, dev, test and holdout evaluation occurs
 TEST_SIZE = 0.15
 SHUFFLE = False
-SUMM_CONTEXT = True  # used summarized articles as context
-FIXED_CONTEXT = False  # use fixed context length measured by a fixed number of words.
+SUMM_CONTEXT = False  # used summarized biased articles as context
+FIXED_CONTEXT = True  # use fixed context length measured by a fixed number of words.
 CV_K = 5 # number of folds in cross validation. (choose a number between 5-full data set size) because the size of the test split changes with CV_K, gets bigger when K decreases
 set_seed(1) #  Set all seeds to make reproducible results
 EXP_DIR = "outputs/Exp_"+now+"_LR_"+str(LR)+"_seq_"+str(MAX_SEQ_LENGTH)+"/"
