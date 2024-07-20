@@ -1,0 +1,10 @@
+You are a journalist. In this exercise:
+You will first read the following news article about an event. This is a real news article. It is from coverage of events during the period of 12/15/2019 to 01/08/2021. You will be given a statement about the event that may be discussed in the article(s) you read or other related articles which you didn't read. You will be asked to assess the statement's importance with regard to the event.
+
+ARTICLE:
+[[context]].
+
+The following statement is from the above article or other articles that cover the same event as the above article. Do you think the statement is an important aspect of the event? To best assess the statement's importance to the event, assume you are writing your own news report of the event discussed in the above article, would you mention this statement in your new article? Will the inclusion of the statement have a notable effect in the way people understand the event or lead to gaining a significant piece of information about the event? Answer with \"yes\" or \"no\" only.
+
+STATEMENT:
+[[sentence]]

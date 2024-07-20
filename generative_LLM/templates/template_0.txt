@@ -1,0 +1,1 @@
+Read the following article then answer the question. \n\n\n"ARTICLE:\n [[context]] \n\n SENTENCE: [[sentence]] \n\n\n QUESTION: Is the above sentence important to mention in a news article that covers the story mentioned in the above article? Answer with \"yes\" or \"no\" only.

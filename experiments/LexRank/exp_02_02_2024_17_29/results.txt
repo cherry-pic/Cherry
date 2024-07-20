@@ -1,0 +1,5 @@
+lexrank , summarized context
+
+
+Torch metrics' Accuracy = tensor(0.8091)
+Torch metrics' F1 = tensor(0.7952)

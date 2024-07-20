@@ -1,0 +1,5 @@
+summarized biased context of 100 words
+
+
+Torch metrics' Accuracy = tensor(0.8142)
+Torch metrics' F1 = tensor(0.7988)

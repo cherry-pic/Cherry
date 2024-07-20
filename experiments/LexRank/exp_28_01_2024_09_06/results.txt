@@ -1,0 +1,5 @@
+1024 context size
+
+
+Torch metrics' Accuracy = tensor(0.8122)
+Torch metrics' F1 = tensor(0.8001)

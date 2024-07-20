@@ -1,0 +1,19 @@
+
+sklearn's accuracy score = 0.8359375
+sklearn's balanced accuracy score = 0.811071513423616
+sklearn's adjusted balanced accuracy score = 0.6221430268472321
+sklearn's macro precision score = 0.8002052445664793
+sklearn's macro recall score = 0.811071513423616
+Classification Report:----------------------------              precision    recall  f1-score   support
+
+           0       0.89      0.68      0.77       207
+           1       0.81      0.94      0.87       305
+
+    accuracy                           0.84       512
+   macro avg       0.85      0.81      0.82       512
+weighted avg       0.84      0.84      0.83       512
+
+Torch metrics' Accuracy = tensor(0.8359)
+Torch metrics' F1 = tensor(0.8723)
+Torch metrics' Precision = tensor(0.8130)
+Torch metrics' Recall = tensor(0.9410)

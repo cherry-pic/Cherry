@@ -1,0 +1,5 @@
+fixed context at 500 words
+
+
+Torch metrics' Accuracy = tensor(0.8201)
+Torch metrics' F1 = tensor(0.8073)

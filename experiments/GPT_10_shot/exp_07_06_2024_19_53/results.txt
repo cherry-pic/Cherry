@@ -1,0 +1,22 @@
+fixed context at 300 words - 10 shots
+
+
+sklearn's accuracy score = 0.822265625
+sklearn's balanced accuracy score = 0.7848499247643937
+sklearn's adjusted balanced accuracy score = 0.5696998495287875
+sklearn's macro precision score = 0.7750469603825137
+sklearn's macro recall score = 0.7848499247643937
+Classification Report:----------------------------
+              precision    recall  f1-score   support
+
+           0       0.95      0.59      0.73       207
+           1       0.78      0.98      0.87       305
+
+    accuracy                           0.82       512
+   macro avg       0.87      0.78      0.80       512
+weighted avg       0.85      0.82      0.81       512
+
+Torch metrics' Accuracy = tensor(0.8223)
+Torch metrics' F1 = tensor(0.8679)
+Torch metrics' Precision = tensor(0.7786)
+Torch metrics' Recall = tensor(0.9803)
