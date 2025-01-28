@@ -5,7 +5,7 @@ By: [Author1](TODO:url) `<TODO:email>` and [Author2](TODO:url) `<TODO:email>`
 This dataset was created as apart of a study on identifying censored statements in news reporting, a type of bias known in literture as "cherry-picking" of facts. The dataset is annotated for statement importance with regard to a specific event. We call this dataset the **Cherry**; what follows below is the datasheet describing this data. If you use this dataset, please acknowledge it by citing the original paper:
 
 ```
-@inproceedings{cao2019toward,
+@inproceedings{cherry,
   title={Filling the Blanks: Context-driven Detection and Correction of Cherry-picking in
 News Reporting},
   author={},
