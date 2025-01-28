@@ -1,4 +1,4 @@
-# Gender Inclusive Coreference Dataset
+# Cherry Dataset
 
 By: [Author1](TODO:url) `<TODO:email>` and [Author2](TODO:url) `<TODO:email>`
 
