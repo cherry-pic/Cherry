@@ -16,7 +16,7 @@ This repo contains three main directories:
 ### Training the supervised models
 1. Use the "environment.yml" file to recreate the environment. </br>
 2. To run traning for any of the supervised model variants above, run the following command from inside the variant's main directory: </br>
-```python main.py </br>```
+```python main.py ```</br>
 3. To modify the paramters, adjust the values in the main.py files under "paramters".
 Each of the variants directories contians the code and the data sets used in the four different classification configurations. You do not need to reset data paths, just choose the classification configuration number in the paramter list in main.py.
 
