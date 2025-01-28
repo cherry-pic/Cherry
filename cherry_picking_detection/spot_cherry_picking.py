@@ -3,14 +3,18 @@
 from sentence_transformers import SentenceTransformer
 lang_model = SentenceTransformer('all-MiniLM-L6-v2')
 import codecs
-from src.helper_scripts.helpers import read_json
 from numpy import array, average
 from nltk import sent_tokenize
 from scipy import spatial
 from correlation import *
 import string
 translation_table = str.maketrans('', '', string.digits)
-
+import json
+def read_json (json_file):
+    with open(json_file) as json_file:
+        data = json.load(json_file)
+        json_file.close()
+    return data
 
 def curate_controversial_events_by_keyword():
     with codecs.open("event_titles_and_ids_controversial.tsv", 'r', encoding='utf8') as f:

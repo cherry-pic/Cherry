@@ -1,7 +1,6 @@
 import openai
 import time
 import os
-#
 openai.api_key= os.environ["OPENAI_API_KEY"]
 from data_loading import load_data
 from transformers import AutoTokenizer

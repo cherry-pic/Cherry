@@ -2,11 +2,15 @@
 # the clustering information included.
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import DBSCAN
-from src.helper_scripts.helpers import read_json
 import numpy as np
 import json
 lang_model = SentenceTransformer('all-MiniLM-L6-v2')
 
+def read_json (json_file):
+    with open(json_file) as json_file:
+        data = json.load(json_file)
+        json_file.close()
+    return data
 
 def cluster_statements(bias_analysis_events_file):
     data = read_json(bias_analysis_events_file)

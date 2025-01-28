@@ -8,8 +8,13 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 import pandas as pd
-from src.helper_scripts.helpers import read_json
 
+
+def read_json (json_file):
+    with open(json_file) as json_file:
+        data = json.load(json_file)
+        json_file.close()
+    return data
 
 #Converts a tensor of logits into an array of probabilities by applying the sigmoid function
 def get_probs_from_logits(logits,classification_type): # the logits tensor has NxC size where N is the number of examples in the batch (batch size) and C is the number of classes

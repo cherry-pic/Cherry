@@ -1,0 +1,20 @@
+## You are a helpful journalist.
+
+## You are given:
+ 1. A list of statements that contain different facts or information about an event.
+ 2. A news report that covered the same event.
+
+## Your task:
+Read the news report, and integrate all the statements in the news report. Place the statements in their most suitable place within the news report to gurantee a smooth flow of information.
+Try to not change the style of writing or the words and terms as much as possible, UNLESS NEEDED.
+
+## Your output:
+Return the rewritten news report with the statements integrated in it. DO NOT return or answer with anything else!!!
+
+STATEMENTS:
+[[statements]]
+
+NEWS REPORT:
+[[news report]]
+
+NEW NEWS REPORT:

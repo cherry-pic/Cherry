@@ -1,11 +1,16 @@
-#STEP1: this script prepares the data
+#STEP1: this script prepares the data for inference
 
-from src.helper_scripts.helpers import read_json
+
 import json
 import codecs
 import os
 from nltk import sent_tokenize
 
+def read_json (json_file):
+    with open(json_file) as json_file:
+        data = json.load(json_file)
+        json_file.close()
+    return data
 
 def get_ids(event_IDs_file):
     ids = []
@@ -22,7 +27,7 @@ def get_ids(event_IDs_file):
 def get_event_titles_and_ids(data_files_dir):   # step 1
     selected_events = []
     filenames= os.listdir(data_files_dir)
-    ids = get_ids("/home/ijaradat/PycharmProjects/cherry_picking_data/data/input/event_selection.txt")
+    ids = get_ids("../../event_selection.txt")
     with codecs.open("event_titles_and_ids.tsv",'w',encoding='utf8') as out:
         for filename in filenames:
             if filename.endswith(".json"):

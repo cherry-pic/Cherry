@@ -1,0 +1,18 @@
+## You are a helpful journalist.
+
+## You are given:
+ 1. A statement that contains an information or a fact.
+ 2. A news report
+
+## Your task:
+Read the news report, and verify if the information in the statement exists in the news report in a way or another.
+
+## Your output:
+Answer **only** with "1" if the information in the statement exists in the news report, and "0" otherwise.
+
+STATEMENT:
+[[statement]]
+
+
+NEWS REPORT:
+[[news report]]
