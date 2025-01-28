@@ -461,17 +461,17 @@ _6_raw_generated_reports_data_path = "raw_generated_reports_data.json"
 _7_generated_reports_data_path = "generated_reports_data.json"
 
 
-# select_events_with_consistent_sources(_1_raw_data_path, _2_baseline_data_path, {"left":"cnn.com", "right":"foxnews.com","neutral":"reuters.com"})
-# calculate_articles_similarities(_2_baseline_data_path, _3_baseline_data_path_w_sim)
-# calculate_avg_similarity(_3_baseline_data_path_w_sim)
-# select_most_biased_articles(_3_baseline_data_path_w_sim, _4_ready_data_path, cos_sim_t=0.7)
-# verify_existence(_4_ready_data_path, _5_existence_checked_data_path)
-# naively_add_missing_statements(_5_existence_checked_data_path, _6_raw_generated_reports_data_path)
-# calculate_article_similarity(_6_raw_generated_reports_data_path)
+select_events_with_consistent_sources(_1_raw_data_path, _2_baseline_data_path, {"left":"cnn.com", "right":"foxnews.com","neutral":"reuters.com"})
+calculate_articles_similarities(_2_baseline_data_path, _3_baseline_data_path_w_sim)
+calculate_avg_similarity(_3_baseline_data_path_w_sim)
+select_most_biased_articles(_3_baseline_data_path_w_sim, _4_ready_data_path, cos_sim_t=0.7)
+verify_existence(_4_ready_data_path, _5_existence_checked_data_path)
+naively_add_missing_statements(_5_existence_checked_data_path, _6_raw_generated_reports_data_path)
+calculate_article_similarity(_6_raw_generated_reports_data_path)
 
-# sim_original_balanced, sim_balanced_neutral, sim_original_neutral = read_similarities_from_files()
-# calculate_avg_article_similarity(sim_original_balanced, sim_balanced_neutral, sim_original_neutral)
-# visualize_shifting(sim_original_neutral,sim_balanced_neutral)
+sim_original_balanced, sim_balanced_neutral, sim_original_neutral = read_similarities_from_files()
+calculate_avg_article_similarity(sim_original_balanced, sim_balanced_neutral, sim_original_neutral)
+#visualize_shifting(sim_original_neutral,sim_balanced_neutral)
 # visualize_similarities(sim_original_neutral,sim_balanced_neutral)
 # integrate_missing_statements(_5_existence_checked_data_path, _7_generated_reports_data_path)
 # sample_before_after(_5_existence_checked_data_path)

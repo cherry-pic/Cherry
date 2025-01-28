@@ -11,20 +11,24 @@ This repo contains three main directories:
 6. lexrank: contains the scripts and data required to run LexRank experiments.
 7. Results: contains the expeirment results and visualizations.
 8. experiments: contains the predictions and all experiment details and results grouped by model.
+9. cherry-picking_correction: contains the scripts and data files required to run the full-end-to-end correction of cherry-picking and measure the improvement in each article's biases by comparing them and the original versions to the neutral narrative.
 ## Install and run:
 ### Training the supervised models
 1. Use the "environment.yml" file to recreate the environment. </br>
 2. To run traning for any of the supervised model variants above, run the following command from inside the variant's main directory: </br>
-python main.py </br>
+```python main.py </br>```
 3. To modify the paramters, adjust the values in the main.py files under "paramters".
 Each of the variants directories contians the code and the data sets used in the four different classification configurations. You do not need to reset data paths, just choose the classification configuration number in the paramter list in main.py.
 
 ### End-to-end cherry-picking detection:
 To run the end-to-end detection pipleine using the top-performing model, install the large files from [here](https://drive.google.com/drive/folders/1bJTSS5HJdb2GGEmfnOciIHnn9U6qOFg4?usp=sharing) and place them under the cherry_picking_detection directory, then run the following command in the directory: </br>
-python spot_cherry_picking.py </br>
+```python spot_cherry_picking.py``` </br>
 The script will run the pipline on the clustered and prepared data file "bias_analysis_events_clustered_wpredictions.json"
 This file contains all the inference data comprised of the 2453 unseen events preprocessed, clustered, and also conatains the results of inference from the top-performing model.
 
 ### Prediction using unsupervised / few-shot learners models:
 To run these models to predict on the testing data set, run either "gpt_exp.py" or "lexRank_exp.py".
 
+### End-to-end cherry-picking correction:
+To run the end-to-end correction pipleine use the data file with model's predictions from the detection step. For instance, you can use the file "bias_analysis_events_clustered_wpredictions.json"  [here](https://drive.google.com/drive/folders/1bJTSS5HJdb2GGEmfnOciIHnn9U6qOFg4?usp=sharing) and place it under the cherry_picking_correction directory, then run the following command in the directory: </br>
+```python correct_cherry_picking.py``` </br>
